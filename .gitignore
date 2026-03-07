@@ -43,6 +43,11 @@ next-env.d.ts
 # project specific
 .agents/**
 .claude/**
+.docs/**
 
 skills-lock.json
 CLAUDE.md
+
+# 飞书同步临时文件
+.feishu-temp/
+sync-state.json
