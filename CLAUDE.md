@@ -81,8 +81,12 @@ cover: 封面图片URL（可选）
 1. **用户准备：** 编写 spec 文档到 `docs/specs/`，更新 `docs/progress.json`
 2. **AI 生成计划：** 触发指令"开始 phase-X"，使用 `writing-plans` skill 生成计划到 `docs/plans/`
 3. **AI 执行计划：** 触发指令"执行计划"，使用 `executing-plans` skill 实施
-4. **用户审核：** Code Review → 功能测试 → Git 提交
-5. **AI 生成总结：** 触发指令"生成总结"，生成总结到 `docs/summaries/`，更新 `docs/progress.json`
+   - 每完成一个 task 立即进行 git commit
+   - 执行完成后更新 spec 文件中的验收标准（勾选 `[x]`）
+   - 更新 spec 文件状态为"已完成"
+   - 更新 `docs/progress.json` 中的阶段状态和完成时间
+4. **用户审核：** Code Review → 功能测试 → 确认验收
+5. **AI 生成总结：** 触发指令"生成总结"，生成总结到 `docs/summaries/`
 
 ### 快速指令
 
@@ -114,6 +118,12 @@ cover: 封面图片URL（可选）
 **状态：** `pending` | `planning` | `in-progress` | `reviewing` | `completed` | `blocked`
 
 ### AI 注意事项
+
+**执行阶段必须做：**
+- 每完成一个 task 立即 git commit（不要等到最后批量提交）
+- 执行完成后更新 spec 文件中所有验收标准复选框为 `[x]`
+- 更新 spec 文件顶部状态为"已完成"
+- 更新 `docs/progress.json` 中的 status、completedAt 字段
 
 **不应该：** 自动提交代码、跳过审核、擅自修改范围
 
