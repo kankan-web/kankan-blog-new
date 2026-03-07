@@ -1,5 +1,5 @@
 {
-  "currentPhase": "phase-1-foundation",
+  "currentPhase": "phase-2-types-and-utils",
   "lastUpdated": "2026-03-08",
   "phases": {
     "phase-1-foundation": {
@@ -11,12 +11,12 @@
       "completedAt": "2026-03-08"
     },
     "phase-2-types-and-utils": {
-      "status": "pending",
+      "status": "completed",
       "specFile": "docs/specs/phase-2-types-and-utils.md",
-      "planFile": null,
+      "planFile": "docs/plans/phase-2-plan.md",
       "summaryFile": null,
-      "startedAt": null,
-      "completedAt": null
+      "startedAt": "2026-03-08",
+      "completedAt": "2026-03-08"
     },
     "phase-3-feishu-sync": {
       "status": "pending",
