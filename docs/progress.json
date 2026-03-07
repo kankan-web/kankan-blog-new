@@ -14,7 +14,7 @@
       "status": "completed",
       "specFile": "docs/specs/phase-2-types-and-utils.md",
       "planFile": "docs/plans/phase-2-plan.md",
-      "summaryFile": null,
+      "summaryFile": "docs/summaries/phase-2-summary.md",
       "startedAt": "2026-03-08",
       "completedAt": "2026-03-08"
     },
