@@ -78,7 +78,7 @@
 ## 技术实现细节
 
 ### 项目架构
-- **框架：** Next.js 15.1.6 (App Router)
+- **框架：** Next.js 16 (App Router)
 - **语言：** TypeScript 5
 - **样式：** TailwindCSS 4
 - **UI 库：** React 19

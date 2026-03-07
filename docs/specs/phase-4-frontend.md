@@ -79,7 +79,7 @@
 ## 技术要求
 
 ### 技术栈
-- Next.js 14 App Router：页面路由
+- Next.js 16 App Router：页面路由
 - React 19：UI 组件
 - react-markdown：Markdown 渲染
 - remark-gfm：GitHub 风格 Markdown

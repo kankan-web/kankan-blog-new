@@ -70,7 +70,7 @@
 ## 技术要求
 
 ### 技术栈
-- Next.js 14 App Router：布局系统
+- Next.js 16 App Router：布局系统
 - React 19：组件
 - TailwindCSS：样式
 - Next.js Link：客户端路由

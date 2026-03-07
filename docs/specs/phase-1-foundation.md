@@ -81,7 +81,7 @@
 ## 技术要求
 
 ### 技术栈
-- Next.js 14+：使用 App Router
+- Next.js 16：使用 App Router
 - TypeScript 5：类型安全
 - TailwindCSS 4：样式方案
 - React 19：UI 框架
@@ -100,7 +100,7 @@
 
 ## 实施注意事项
 
-1. 使用 `npx create-next-app@latest` 创建项目，确保版本是 14+
+1. 使用 `npx create-next-app@latest` 创建项目，确保版本是 16
 2. 选择正确的配置选项：TypeScript、ESLint、TailwindCSS、App Router
 3. 清理默认内容时保留必要的配置文件
 4. `.gitignore` 需要添加同步临时文件、环境变量、构建输出等

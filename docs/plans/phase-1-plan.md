@@ -4,9 +4,9 @@
 
 **目标：** 搭建 Next.js 项目基础架构，配置开发环境，创建目录结构，安装核心依赖
 
-**架构方案：** 使用 Next.js 14+ App Router + TypeScript 5 + TailwindCSS 4，采用静态生成方式，内容存储在 `content/posts/` 目录，图片存储在 `public/images/`
+**架构方案：** 使用 Next.js 16 App Router + TypeScript 5 + TailwindCSS 4，采用静态生成方式，内容存储在 `content/posts/` 目录，图片存储在 `public/images/`
 
-**技术栈：** Next.js 14+, React 19, TypeScript 5, TailwindCSS 4, react-markdown, gray-matter, flexsearch
+**技术栈：** Next.js 16, React 19, TypeScript 5, TailwindCSS 4, react-markdown, gray-matter, flexsearch
 
 ---
 
