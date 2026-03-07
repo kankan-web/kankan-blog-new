@@ -24,13 +24,12 @@ npm run sync:all   # 全量同步（重新同步所有文档）
 ## 目录结构
 ```
 app/                    # Next.js 页面（首页、文章详情、分类、标签）
+components/             # React 组件
+lib/                    # 工具函数（posts.ts 等）
+types/                  # TypeScript 类型定义
 content/posts/          # Markdown 文章（按分类组织）
 public/images/          # 文章图片（按年月组织 YYYY/MM/）
 scripts/                # 飞书同步脚本
-src/
-  ├── components/       # React 组件
-  ├── lib/posts.ts      # 文章读取工具函数
-  └── types/            # TypeScript 类型定义
 docs/
   ├── specs/            # 阶段性规格说明
   ├── plans/            # 执行计划
@@ -64,7 +63,7 @@ cover: 封面图片URL（可选）
 ---
 ```
 
-## 核心工具函数（src/lib/posts.ts）
+## 核心工具函数（lib/posts.ts）
 - `getAllPosts()` - 获取所有文章（按日期倒序）
 - `getPostBySlug(slug, category)` - 获取单篇文章
 - `getPostsByCategory(category)` / `getPostsByTag(tag)` - 按分类/标签筛选
