@@ -19,11 +19,11 @@
       "completedAt": "2026-03-08"
     },
     "phase-3-feishu-sync": {
-      "status": "pending",
+      "status": "planning",
       "specFile": "docs/specs/phase-3-feishu-sync.md",
-      "planFile": null,
+      "planFile": "docs/plans/phase-3-plan.md",
       "summaryFile": null,
-      "startedAt": null,
+      "startedAt": "2026-03-08",
       "completedAt": null
     },
     "phase-4-frontend": {
