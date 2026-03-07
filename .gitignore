@@ -43,7 +43,6 @@ next-env.d.ts
 # project specific
 .agents/**
 .claude/**
-docs/**
 
 skills-lock.json
 CLAUDE.md

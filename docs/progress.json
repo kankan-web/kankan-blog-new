@@ -1,0 +1,54 @@
+{
+  "currentPhase": "phase-1-foundation",
+  "lastUpdated": "2026-03-08",
+  "phases": {
+    "phase-1-foundation": {
+      "status": "completed",
+      "specFile": "docs/specs/phase-1-foundation.md",
+      "planFile": "docs/plans/phase-1-plan.md",
+      "summaryFile": null,
+      "startedAt": "2026-03-08",
+      "completedAt": "2026-03-08"
+    },
+    "phase-2-types-and-utils": {
+      "status": "pending",
+      "specFile": "docs/specs/phase-2-types-and-utils.md",
+      "planFile": null,
+      "summaryFile": null,
+      "startedAt": null,
+      "completedAt": null
+    },
+    "phase-3-feishu-sync": {
+      "status": "pending",
+      "specFile": "docs/specs/phase-3-feishu-sync.md",
+      "planFile": null,
+      "summaryFile": null,
+      "startedAt": null,
+      "completedAt": null
+    },
+    "phase-4-frontend": {
+      "status": "pending",
+      "specFile": "docs/specs/phase-4-frontend.md",
+      "planFile": null,
+      "summaryFile": null,
+      "startedAt": null,
+      "completedAt": null
+    },
+    "phase-5-layout": {
+      "status": "pending",
+      "specFile": "docs/specs/phase-5-layout.md",
+      "planFile": null,
+      "summaryFile": null,
+      "startedAt": null,
+      "completedAt": null
+    },
+    "phase-6-deployment": {
+      "status": "pending",
+      "specFile": "docs/specs/phase-6-deployment.md",
+      "planFile": null,
+      "summaryFile": null,
+      "startedAt": null,
+      "completedAt": null
+    }
+  }
+}
