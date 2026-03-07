@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@larksuiteoapi/node-sdk": "^1.59.0",
+    "axios": "^1.13.6",
     "date-fns": "^4.1.0",
     "flexsearch": "^0.8.212",
     "gray-matter": "^4.0.3",
