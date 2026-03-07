@@ -41,11 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 # project specific
-.agents/** 
-.claude/** 
-docs/** 
-docs/*/** 
-docs/plans/** 
-docs/plans/**/** 
+.agents/**
+.claude/**
 
 skills-lock.json
+CLAUDE.md
