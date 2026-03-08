@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { FeishuClient } from './feishu-client';
 import { ImageProcessor } from './image-processor';
 import { SyncState } from '../types/feishu';
+import 'dotenv/config';
 
 // 读取环境变量
 const FEISHU_APP_ID = process.env.FEISHU_APP_ID!;

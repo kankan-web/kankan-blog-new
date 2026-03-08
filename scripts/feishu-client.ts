@@ -55,7 +55,8 @@ export class FeishuClient {
 
     // 获取新 token
     return this.retryRequest(async () => {
-      const response = await this.axiosInstance.post('/open-api/auth/v3/app_access_token/internal', {
+      console.log('获取新 token');
+      const response = await this.axiosInstance.post('/open-apis/auth/v3/tenant_access_token/internal', {
         app_id: this.appId,
         app_secret: this.appSecret,
       });
@@ -64,7 +65,7 @@ export class FeishuClient {
         throw new Error(`Failed to get access token: ${response.data.msg}`);
       }
 
-      const token = response.data.app_access_token;
+      const token = response.data.tenant_access_token;
       const expiresIn = response.data.expire; // 秒数
 
       // 缓存 token
@@ -82,12 +83,13 @@ export class FeishuClient {
    */
   async listFiles(folderToken: string): Promise<any[]> {
     return this.retryRequest(async () => {
+
       const token = await this.getAccessToken();
       const allFiles: any[] = [];
       let pageToken: string | undefined;
 
       do {
-        const response = await this.axiosInstance.get('/open-api/drive/v1/files', {
+        const response = await this.axiosInstance.get('/open-apis/drive/v1/files', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -117,7 +119,7 @@ export class FeishuClient {
     return this.retryRequest(async () => {
       const token = await this.getAccessToken();
 
-      const response = await this.axiosInstance.get(`/open-api/docx/v1/documents/${documentId}/raw_content`, {
+      const response = await this.axiosInstance.get(`/open-apis/docx/v1/documents/${documentId}/raw_content`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -138,7 +140,7 @@ export class FeishuClient {
     return this.retryRequest(async () => {
       const token = await this.getAccessToken();
 
-      const response = await this.axiosInstance.get(`/open-api/drive/v1/medias/${fileToken}/download`, {
+      const response = await this.axiosInstance.get(`/open-apis/drive/v1/medias/${fileToken}/download`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
