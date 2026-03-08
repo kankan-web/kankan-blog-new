@@ -15,7 +15,7 @@ export class FeishuClient {
     this.appId = appId;
     this.appSecret = appSecret;
     this.axiosInstance = axios.create({
-      baseURL: 'https://open.feishu.cn/open-api',
+      baseURL: 'https://open.feishu.cn',
       timeout: 30000,
     });
   }
@@ -55,7 +55,7 @@ export class FeishuClient {
 
     // 获取新 token
     return this.retryRequest(async () => {
-      const response = await this.axiosInstance.post('/auth/v3/app_access_token/internal', {
+      const response = await this.axiosInstance.post('/open-api/auth/v3/app_access_token/internal', {
         app_id: this.appId,
         app_secret: this.appSecret,
       });
@@ -87,7 +87,7 @@ export class FeishuClient {
       let pageToken: string | undefined;
 
       do {
-        const response = await this.axiosInstance.get('/drive/v1/files', {
+        const response = await this.axiosInstance.get('/open-api/drive/v1/files', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -117,7 +117,7 @@ export class FeishuClient {
     return this.retryRequest(async () => {
       const token = await this.getAccessToken();
 
-      const response = await this.axiosInstance.get(`/docx/v1/documents/${documentId}/raw_content`, {
+      const response = await this.axiosInstance.get(`/open-api/docx/v1/documents/${documentId}/raw_content`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -138,7 +138,7 @@ export class FeishuClient {
     return this.retryRequest(async () => {
       const token = await this.getAccessToken();
 
-      const response = await this.axiosInstance.get(`/drive/v1/medias/${fileToken}/download`, {
+      const response = await this.axiosInstance.get(`/open-api/drive/v1/medias/${fileToken}/download`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
