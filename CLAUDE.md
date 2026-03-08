@@ -39,7 +39,7 @@ docs/
 
 ## 关键设计
 
-**内容同步：** 飞书文档按文件夹分类 → 对比 `sync-state.json` 识别更新 → 下载图片到 `public/images/` → 替换为 jsDelivr CDN 链接 → 保存到 `content/posts/{分类}/{slug}.md`
+**内容同步：** 飞书知识库节点树 → 递归遍历节点 → 对比 `sync-state.json` 识别更新 → 下载图片到 `public/images/` → 替换为 jsDelivr CDN 链接 → 保存到 `content/posts/{分类}/{slug}.md`
 
 **静态生成：** 构建时通过 `generateStaticParams` 预生成所有页面，使用 `fs` 读取文章，无需数据库
 
@@ -47,7 +47,7 @@ docs/
 
 ## 环境变量
 
-**GitHub Secrets：** `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_FOLDER_TOKEN`
+**GitHub Secrets：** `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_SPACE_ID`
 
 **Vercel（Giscus 评论）：** `NEXT_PUBLIC_GISCUS_REPO`, `NEXT_PUBLIC_GISCUS_REPO_ID`, `NEXT_PUBLIC_GISCUS_CATEGORY`, `NEXT_PUBLIC_GISCUS_CATEGORY_ID`
 

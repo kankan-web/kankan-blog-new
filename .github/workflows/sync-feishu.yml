@@ -36,7 +36,7 @@ jobs:
         env:
           FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
           FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
-          FEISHU_FOLDER_TOKEN: ${{ secrets.FEISHU_FOLDER_TOKEN }}
+          FEISHU_SPACE_ID: ${{ secrets.FEISHU_SPACE_ID }}
           GITHUB_REPO: ${{ github.repository }}
         run: npm run sync
 

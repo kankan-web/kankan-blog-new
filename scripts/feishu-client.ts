@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import { WikiNode } from '../types/feishu.js';
 
 interface TokenCache {
   token: string;
@@ -79,36 +80,35 @@ export class FeishuClient {
   }
 
   /**
-   * 获取文件夹下的文件列表（支持分页）
+   * 获取知识库节点列表（支持分页）
    */
-  async listFiles(folderToken: string): Promise<any[]> {
+  async listWikiNodes(spaceId: string, parentNodeToken?: string): Promise<WikiNode[]> {
     return this.retryRequest(async () => {
-
       const token = await this.getAccessToken();
-      const allFiles: any[] = [];
+      const allNodes: WikiNode[] = [];
       let pageToken: string | undefined;
 
       do {
-        const response = await this.axiosInstance.get('/open-apis/drive/v1/files', {
+        const response = await this.axiosInstance.get(`/open-apis/wiki/v2/spaces/${spaceId}/nodes`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
           params: {
-            folder_token: folderToken,
-            page_size: 200,
+            page_size: 50,
             page_token: pageToken,
+            parent_node_token: parentNodeToken,
           },
         });
 
         if (response.data.code !== 0) {
-          throw new Error(`Failed to list files: ${response.data.msg}`);
+          throw new Error(`Failed to list wiki nodes: ${response.data.msg}`);
         }
 
-        allFiles.push(...response.data.data.files);
-        pageToken = response.data.data.next_page_token;
+        allNodes.push(...(response.data.data.items || []));
+        pageToken = response.data.data.page_token;
       } while (pageToken);
 
-      return allFiles;
+      return allNodes;
     });
   }
 
