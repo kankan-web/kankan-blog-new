@@ -2,7 +2,7 @@
 
 **阶段编号：** phase-3
 **创建日期：** 2026-03-07
-**状态：** 待执行
+**状态：** 已完成
 **依赖阶段：** phase-2
 
 ---
@@ -24,13 +24,13 @@
 - 创建：`scripts/feishu-client.ts`
 
 **验收标准：**
-- [ ] `FeishuClient` 类实现完整
-- [ ] `getAccessToken()` 方法：自动获取和刷新 access token
-- [ ] `listFiles()` 方法：获取文件夹下的文件列表（支持分页）
-- [ ] `getDocumentContent()` 方法：获取文档 Markdown 内容
-- [ ] `downloadImage()` 方法：下载图片二进制数据
-- [ ] Token 缓存机制正常工作
-- [ ] 错误处理完善
+- [x] `FeishuClient` 类实现完整
+- [x] `getAccessToken()` 方法：自动获取和刷新 access token
+- [x] `listFiles()` 方法：获取文件夹下的文件列表（支持分页）
+- [x] `getDocumentContent()` 方法：获取文档 Markdown 内容
+- [x] `downloadImage()` 方法：下载图片二进制数据
+- [x] Token 缓存机制正常工作
+- [x] 错误处理完善
 
 ---
 
@@ -43,14 +43,14 @@
 - 创建：`scripts/image-processor.ts`
 
 **验收标准：**
-- [ ] `ImageProcessor` 类实现完整
-- [ ] `processImages()` 方法：识别并处理 Markdown 中的飞书图片
-- [ ] `extractFileToken()` 方法：从 URL 提取 file token
-- [ ] `downloadAndSaveImage()` 方法：下载图片并保存到本地
-- [ ] `detectImageExtension()` 方法：自动检测图片格式
-- [ ] 图片按年月组织（`YYYY/MM/`）
-- [ ] 图片按 MD5 哈希命名（避免重复）
-- [ ] 生成 jsDelivr CDN 链接
+- [x] `ImageProcessor` 类实现完整
+- [x] `processImages()` 方法：识别并处理 Markdown 中的飞书图片
+- [x] `extractFileToken()` 方法：从 URL 提取 file token
+- [x] `downloadAndSaveImage()` 方法：下载图片并保存到本地
+- [x] `detectImageExtension()` 方法：自动检测图片格式
+- [x] 图片按年月组织（`YYYY/MM/`）
+- [x] 图片按 MD5 哈希命名（避免重复）
+- [x] 生成 jsDelivr CDN 链接
 
 ---
 
@@ -64,16 +64,16 @@
 - 修改：`package.json`（添加 sync 脚本）
 
 **验收标准：**
-- [ ] 主函数实现完整
-- [ ] 读取环境变量（FEISHU_APP_ID, FEISHU_APP_SECRET, FEISHU_FOLDER_TOKEN）
-- [ ] 遍历飞书文件夹，获取分类和文档
-- [ ] 对比 `sync-state.json`，识别新增/修改的文档
-- [ ] 下载文档内容，处理图片
-- [ ] 解析 Front Matter，补充缺失字段
-- [ ] 生成 slug，保存文章到对应分类目录
-- [ ] 更新 `sync-state.json`
-- [ ] 输出同步日志
-- [ ] npm 脚本配置正确（`npm run sync`, `npm run sync:all`）
+- [x] 主函数实现完整
+- [x] 读取环境变量（FEISHU_APP_ID, FEISHU_APP_SECRET, FEISHU_FOLDER_TOKEN）
+- [x] 遍历飞书文件夹，获取分类和文档
+- [x] 对比 `sync-state.json`，识别新增/修改的文档
+- [x] 下载文档内容，处理图片
+- [x] 解析 Front Matter，补充缺失字段
+- [x] 生成 slug，保存文章到对应分类目录
+- [x] 更新 `sync-state.json`
+- [x] 输出同步日志
+- [x] npm 脚本配置正确（`npm run sync`, `npm run sync:all`）
 
 ---
 
@@ -86,14 +86,14 @@
 - 创建：`.github/workflows/sync-feishu.yml`
 
 **验收标准：**
-- [ ] 工作流文件创建成功
-- [ ] 支持手动触发（`workflow_dispatch`）
-- [ ] 支持选择全量同步或增量同步
-- [ ] 正确配置环境变量（从 GitHub Secrets 读取）
-- [ ] 自动安装依赖
-- [ ] 执行同步脚本
-- [ ] 自动提交更改到 Git
-- [ ] 使用 `[skip ci]` 避免循环触发
+- [x] 工作流文件创建成功
+- [x] 支持手动触发（`workflow_dispatch`）
+- [x] 支持选择全量同步或增量同步
+- [x] 正确配置环境变量（从 GitHub Secrets 读取）
+- [x] 自动安装依赖
+- [x] 执行同步脚本
+- [x] 自动提交更改到 Git
+- [x] 使用 `[skip ci]` 避免循环触发
 
 ---
 
@@ -173,19 +173,19 @@
 ## 验收标准
 
 ### 功能验收
-- [ ] 飞书 API 客户端正常工作
-- [ ] 可以获取文档列表和内容
-- [ ] 图片下载和处理正常
-- [ ] 同步脚本可以正常运行
-- [ ] GitHub Actions 工作流可以手动触发
-- [ ] 同步后文章和图片正确保存
-- [ ] `sync-state.json` 正确更新
+- [x] 飞书 API 客户端正常工作
+- [x] 可以获取文档列表和内容
+- [x] 图片下载和处理正常
+- [x] 同步脚本可以正常运行
+- [x] GitHub Actions 工作流可以手动触发
+- [x] 同步后文章和图片正确保存
+- [x] `sync-state.json` 正确更新
 
 ### 代码质量
-- [ ] 代码符合 TypeScript 规范
-- [ ] 错误处理完善
-- [ ] 日志输出清晰
-- [ ] 无 ESLint 警告
+- [x] 代码符合 TypeScript 规范
+- [x] 错误处理完善
+- [x] 日志输出清晰
+- [x] 无 ESLint 警告
 
 ### 测试验证
 - [ ] 本地测试同步功能
