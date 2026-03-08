@@ -1,0 +1,49 @@
+name: 同步飞书文档
+
+on:
+  workflow_dispatch:
+    inputs:
+      sync_mode:
+        description: '同步模式'
+        required: true
+        default: 'incremental'
+        type: choice
+        options:
+          - incremental
+          - full
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Delete sync state (full sync)
+        if: github.event.inputs.sync_mode == 'full'
+        run: rm -f sync-state.json
+
+      - name: Sync Feishu documents
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_FOLDER_TOKEN: ${{ secrets.FEISHU_FOLDER_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: npm run sync
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: 同步飞书文档 [skip ci]"
+          git push || exit 0
