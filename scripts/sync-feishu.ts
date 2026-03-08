@@ -1,9 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
-import { FeishuClient } from './feishu-client';
-import { ImageProcessor } from './image-processor';
-import { SyncState } from '../types/feishu';
+import { FeishuClient } from './feishu-client.js';
+import { ImageProcessor } from './image-processor.js';
+import { SyncState } from '../types/feishu.js';
 import 'dotenv/config';
 
 // 读取环境变量

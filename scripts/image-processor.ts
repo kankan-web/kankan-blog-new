@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
-import { FeishuClient } from './feishu-client';
-
+import { FeishuClient } from './feishu-client.js';
+import 'dotenv/config';
 export class ImageProcessor {
   private feishuClient: FeishuClient;
   private githubRepo: string;
