@@ -55,7 +55,7 @@ export class FeishuClient {
 
     // 获取新 token
     return this.retryRequest(async () => {
-      const response = await this.axiosInstance.post('/auth/v3/tenant_access_token/internal', {
+      const response = await this.axiosInstance.post('/auth/v3/app_access_token/internal', {
         app_id: this.appId,
         app_secret: this.appSecret,
       });
@@ -64,7 +64,7 @@ export class FeishuClient {
         throw new Error(`Failed to get access token: ${response.data.msg}`);
       }
 
-      const token = response.data.tenant_access_token;
+      const token = response.data.app_access_token;
       const expiresIn = response.data.expire; // 秒数
 
       // 缓存 token
