@@ -32,35 +32,34 @@
 
 ---
 
-## 2. 飞书开放平台配置
+## 2. 飞书开放平台配置（机器人推送方案）
 
-### 2.1 创建应用
+### 2.1 创建机器人应用
 - [ ] 登录飞书开放平台：https://open.feishu.cn
-- [ ] 创建企业自建应用
+- [ ] 创建企业自建应用（需启用「机器人」能力）
 - [ ] 记录 **App ID**：cli_a92f639db63a5bcb
-- [ ] 记录 **App Secret**：43KZDoxt85RORNmvMyzeIbUFEoi0L1Tm
+- [ ] 记录 **App Secret**：（存储在安全位置，不提交到代码仓库）
 
 ### 2.2 权限配置
 需要申请以下权限：
-- [ ] `docx:document:readonly` - 读取文档
-- [ ] `drive:drive:readonly` - 访问云空间
+- [ ] `im:message` - 接收消息（机器人被 @ 时触发）
+- [ ] `im:message:send_as_bot` - 以机器人身份发送消息/卡片
+- [ ] `docx:document:readonly` - 读取文档内容
+- [ ] `drive:drive:readonly` - 访问云空间（下载图片）
 
-### 2.3 获取文件夹 Token
-- [x] 在飞书云文档中创建知识库文件夹
-- [x] 按分类创建子文件夹（如：技术、生活等）
-- [x] 获取根文件夹的 **Folder Token**：RvxrwcMCMikeGxkMQaMcHasNnxb
+### 2.3 事件订阅配置
+- [ ] 订阅 `im.message.receive_v1` 事件（接收用户消息）
+- [ ] 配置回调地址（机器人后端服务 URL）
+- [ ] 订阅卡片交互回调（用户点击「确认同步」按钮）
 
-### 2.4 测试文档
-- [ ] 在飞书文档中创建一篇测试文章
-- [ ] 添加 Front Matter 元信息：
-  ```yaml
-  ---
-  title: 测试文章
-  date: 2026-03-03
-  tags: [测试]
-  description: 这是一篇测试文章
-  ---
-  ```
+### 2.4 GitHub Token 配置
+- [ ] 创建 GitHub Personal Access Token（需 `repo` 权限）
+- [ ] 配置到机器人后端服务的环境变量中
+
+### 2.5 测试验证
+- [ ] 在飞书对话框中 @机器人 发送一篇文档链接
+- [ ] 确认机器人回复交互卡片
+- [ ] 确认点击「确认同步」后文章正确提交到 GitHub 仓库
 
 ---
 

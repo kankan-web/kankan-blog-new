@@ -563,13 +563,47 @@ html {
 
 ## 10. 技术实现要点
 
-### 10.1 飞书文档同步
+### 10.1 飞书文档同步（机器人推送方案）
+
+**触发方式：**
+- 在飞书对话框中 @机器人 + 发送飞书文档链接
+- 机器人解析文档链接，通过飞书 API 读取文档内容
+- 机器人回复交互卡片，供用户确认分类、标签等元信息
+- 用户点击「确认同步」后，机器人执行转换和提交
+
+**交互卡片流程：**
+```
+用户：@博客助手 [飞书文档链接]
+       ↓
+Bot 回复交互卡片：
+  ┌────────────────────────┐
+  │ 📄 文章：XXX           │
+  │ 分类：[技术 ▾]         │  ← 下拉选择
+  │ 标签：[React] [+添加]  │  ← 多选/输入
+  │ 摘要：自动生成...       │  ← 可编辑
+  │                        │
+  │   [取消]  [确认同步]    │
+  └────────────────────────┘
+       ↓
+用户点击「确认同步」→ Bot 执行以下操作：
+  1. 通过飞书 API 读取文档 Block 结构
+  2. 将飞书 Block 转换为 Markdown
+  3. 下载文档中的图片 → MD5 哈希命名
+  4. 生成 front matter（含用户选择的分类/标签）
+  5. 通过 GitHub API 提交文件到仓库
+  6. Vercel 检测到 push → 自动构建部署
+  7. Bot 回复部署结果（成功/失败）
+```
+
+**提交到仓库的内容：**
+- `content/posts/{分类}/{slug}.md` — Markdown 文章文件（含 front matter）
+- `public/images/YYYY/MM/{hash}.png` — 文档中的图片文件
 
 **文章 Front Matter 格式：**
 ```yaml
 ---
 title: 文章标题
-date: 2026-03-03
+date: 2026-03-28
 category: 技术
 tags: [React, TypeScript, Next.js]
 description: 文章简介
@@ -577,13 +611,16 @@ cover: 封面图片URL（可选）
 ---
 ```
 
-**分类组织：**
-- 飞书文档按文件夹组织
-- 文件夹名称 = 分类名称
-- 保存到 `content/posts/{分类}/{slug}.md`
+**技术实现要点：**
+- 飞书机器人：需要在飞书开放平台创建机器人应用，订阅消息事件
+- 交互卡片：使用飞书消息卡片（Interactive Card）构建确认界面
+- 文档解析：调用飞书文档 API 获取 Block 结构，递归转换为 Markdown
+- GitHub 提交：使用 GitHub Contents API 或 Git Data API 提交文件
+- 部署通知：监听 Vercel Deploy Hook 或 GitHub Actions 状态回调
 
 **图片处理：**
 - 自动下载飞书图片
+- MD5 哈希命名，避免重复
 - 保存到 `public/images/YYYY/MM/`
 - 替换为 jsDelivr CDN 链接
 
@@ -736,7 +773,7 @@ AI / Web 开发 / 前端工程化 / 开源
 
 **博客技术栈：**
 
-这个博客使用 Next.js + TypeScript + TailwindCSS 构建，内容托管在飞书文档，通过 GitHub Actions 自动同步，部署在 Vercel。
+这个博客使用 Next.js + TypeScript + TailwindCSS 构建，内容托管在飞书文档，通过飞书机器人推送同步到 GitHub 仓库，部署在 Vercel。
 
 ## 📬 联系方式
 
@@ -794,3 +831,4 @@ AI / Web 开发 / 前端工程化 / 开源
 ## 变更记录
 
 - 2026-03-04：初始版本，确认所有设计规范
+- 2026-03-28：更新飞书同步方案为机器人推送 + 交互卡片确认模式

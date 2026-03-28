@@ -1,50 +1,48 @@
 {
-  "currentPhase": "phase-3-feishu-sync",
-  "lastUpdated": "2026-03-08",
+  "currentPhase": "phase-0-architecture",
+  "lastUpdated": "2026-03-28",
+  "notes": "推翻旧方案，采用飞书机器人推送 + 交互卡片确认 + GitHub API 提交的新架构",
   "phases": {
-    "phase-1-foundation": {
-      "status": "completed",
-      "specFile": "docs/specs/phase-1-foundation.md",
-      "planFile": "docs/plans/phase-1-plan.md",
-      "summaryFile": "docs/summaries/phase-1-summary.md",
-      "startedAt": "2026-03-08",
-      "completedAt": "2026-03-08"
+    "phase-0-architecture": {
+      "status": "in-progress",
+      "description": "架构设计与文档更新",
+      "specFile": null,
+      "planFile": null,
+      "summaryFile": null,
+      "startedAt": "2026-03-28",
+      "completedAt": null
     },
-    "phase-2-types-and-utils": {
-      "status": "completed",
-      "specFile": "docs/specs/phase-2-types-and-utils.md",
-      "planFile": "docs/plans/phase-2-plan.md",
-      "summaryFile": "docs/summaries/phase-2-summary.md",
-      "startedAt": "2026-03-08",
-      "completedAt": "2026-03-08"
-    },
-    "phase-3-feishu-sync": {
-      "status": "completed",
-      "specFile": "docs/specs/phase-3-feishu-sync.md",
-      "planFile": "docs/plans/phase-3-plan.md",
-      "summaryFile": "docs/summaries/phase-3-summary.md",
-      "startedAt": "2026-03-08",
-      "completedAt": "2026-03-08"
-    },
-    "phase-4-frontend": {
+    "phase-1-frontend": {
       "status": "pending",
-      "specFile": "docs/specs/phase-4-frontend.md",
+      "description": "博客前端页面（首页、文章列表、文章详情、关于页）+ 布局组件",
+      "specFile": null,
       "planFile": null,
       "summaryFile": null,
       "startedAt": null,
       "completedAt": null
     },
-    "phase-5-layout": {
+    "phase-2-feishu-bot": {
       "status": "pending",
-      "specFile": "docs/specs/phase-5-layout.md",
+      "description": "飞书机器人后端服务（消息接收、交互卡片、文档解析、Markdown 转换）",
+      "specFile": null,
       "planFile": null,
       "summaryFile": null,
       "startedAt": null,
       "completedAt": null
     },
-    "phase-6-deployment": {
+    "phase-3-github-sync": {
       "status": "pending",
-      "specFile": "docs/specs/phase-6-deployment.md",
+      "description": "GitHub API 提交集成（图片处理、文件提交、部署通知）",
+      "specFile": null,
+      "planFile": null,
+      "summaryFile": null,
+      "startedAt": null,
+      "completedAt": null
+    },
+    "phase-4-deployment": {
+      "status": "pending",
+      "description": "Vercel 部署配置、SEO 优化、性能优化",
+      "specFile": null,
       "planFile": null,
       "summaryFile": null,
       "startedAt": null,
